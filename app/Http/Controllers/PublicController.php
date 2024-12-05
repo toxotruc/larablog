@@ -29,6 +29,18 @@ class PublicController extends Controller
 
     // Je vous laisse faire le code
     // N'oubliez pas de vérifier que l'article est publié (draft == 0)
+    if ($article -> draft == 0)
+    {
+         return redirect()->route('dashboard')->with('error', 'cet article est privé !');
+    }
+    //si aucun article renvoyer au dashboard avec message d'erreur.
+     else if ($article === null)
+     {
+        return redirect()->route('dashboard')->with('error', 'aucun article pour cet utilisateur');
+     }
+    return view('public.show', [
+        'article' => $article
+    ]);
 }
 
 }
