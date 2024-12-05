@@ -4,7 +4,17 @@
             Liste des articles publiés de {{ $user->name }}
         </h2>
     </div>
-
+    @if (session('error'))
+                <div class="bg-red-500 text-white p-4 rounded-lg mt-6 mb-6 text-center">
+                    {{ session('error') }}
+                </div>
+            @endif
+            <!-- Message flash -->
+            @if (session('success'))
+            <div class="bg-green-500 text-white p-4 rounded-lg mt-6 mb-6 text-center">
+                {{ session('success') }}
+            </div>
+            @endif
     <div>
         <!-- Articles -->
         @foreach ($articles as $article)

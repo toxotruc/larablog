@@ -15,7 +15,7 @@ class UserController extends Controller
 
 
 
-        public function store(Request $request)
+    public function store(Request $request)
     {
         // On récupère les données du formulaire
         $data = $request->only(['title', 'content', 'draft']);
